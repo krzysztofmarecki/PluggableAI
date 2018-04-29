@@ -12,10 +12,14 @@ public class StateController : MonoBehaviour {
 	public EnemyStats enemyStats;
 	public Transform eyes;
     public State remainInState;
-    public Transform target;   // Transform of f.e. player that AI will look for
+
+    public GameObject target;
+    [HideInInspector]
+    public Transform targetTransform;   // Transform of f.e. player that AI will look for
+    [HideInInspector]
+    public Animator targetAnimator;
 
 	[HideInInspector] public NavMeshAgent navMeshAgent { get; private set; }
-//	[HideInInspector] public Complete.TankShooting tankShooting;
 
     // PatrolAction
 	[HideInInspector] public List<Transform> wayPointList;
@@ -30,21 +34,13 @@ public class StateController : MonoBehaviour {
 
 	void Awake () 
 	{
-//		tankShooting = GetComponent<Complete.TankShooting> ();
 		navMeshAgent = GetComponent<NavMeshAgent> ();
-
-        // przekopiowane z SetupAI
+        targetAnimator = target.GetComponent<Animator>();
+        targetTransform = target.GetComponent<Transform>();
         aiActive = true;
-        if (aiActive)
-        {
-            navMeshAgent.enabled = true;
-        }
-        else
-        {
-            navMeshAgent.enabled = false;
-        }
     }
 
+    // unused for now, maybe will be helpfull in future
 	public void SetupAI(bool aiActivationFromTankManager, List<Transform> wayPointsFromTankManager)
 	{
 		wayPointList = wayPointsFromTankManager;
