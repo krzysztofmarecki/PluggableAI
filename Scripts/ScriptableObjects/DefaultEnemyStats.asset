@@ -9,16 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b8255c5dccabb642a5a43f20002a522, type: 3}
-  m_Name: DefaultEnemyStats
+  m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
   lookRange: 40
-  lookSphereCastRadius: 1
   coneSightAngle: 65
-  attackRange: 1
-  attackRate: 1
-  attackForce: 15
-  attackDamage: 50
+  attackRange: 10
   searchDuration: 40
-  searchingTurnSpeed: 120
-  searchRadius: 10
+  searchRadius: 40
