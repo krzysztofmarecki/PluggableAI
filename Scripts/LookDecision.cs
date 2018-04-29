@@ -18,7 +18,7 @@ public class LookDecision : Decision {
         if (inConeSight(target, controller))
         {
             Debug.Log("I See you");
-            controller.lastSeenLocation = target.transform.position;
+            controller.lastTargetLocation = target.transform.position;
             FaceTarget(target, controller);
             return true;
         }
