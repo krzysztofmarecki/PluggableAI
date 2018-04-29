@@ -4,34 +4,30 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(NavMeshBuilder))]
-[RequireComponent(typeof(Collider2D))]
 public class StateController : MonoBehaviour {
 
     public State currentState;
-	public EnemyStats enemyStats;
-	public Transform eyes;
+    public EnemyStats enemyStats;
+    public Transform eyes;
     public State remainInState;
 
     public GameObject target;
-    [HideInInspector]
-    public Transform targetTransform;   // Transform of f.e. player that AI will look for
-    [HideInInspector]
-    public Animator targetAnimator;
+    public Transform targetTransform { get; private set; }
+    public Animator targetAnimator { get; private set; }
 
-	[HideInInspector] public NavMeshAgent navMeshAgent { get; private set; }
+	public NavMeshAgent navMeshAgent { get; private set; }
 
     // PatrolAction
 	[HideInInspector] public List<Transform> wayPointList;
     [HideInInspector] public int nextWayPoint;
 
+    // SearchAreaAction, LookDecision
     [HideInInspector] public Vector3 lastSeenLocation;
     private float timeInState = 0f;
     
-
+    // dummy for now, maybe helpfull in future
 	private bool aiActive;
-
-
+    
 	void Awake () 
 	{
 		navMeshAgent = GetComponent<NavMeshAgent> ();
