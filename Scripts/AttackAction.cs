@@ -12,8 +12,6 @@ public class AttackAction : Action {
 
     private void Attack(StateController controller)
     {
-        Debug.DrawRay(controller.eyes.position, controller.eyes.forward.normalized * controller.enemyStats.attackRange, Color.red);
-        
         Transform target = controller.target;
         if (isTargetInRange(target, controller))
         {

@@ -13,7 +13,7 @@ public class SearchAreaAction : Action {
 
     private void SearchArea(StateController controller)
     {
-
+        Debug.DrawRay(controller.eyes.position, controller.eyes.forward.normalized * controller.enemyStats.lookRange, Color.yellow);
         // check is already in position
         // if so, generate next point and set new destination
         if (controller.navMeshAgent.remainingDistance <= controller.navMeshAgent.stoppingDistance &&

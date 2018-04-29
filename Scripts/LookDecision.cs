@@ -14,11 +14,7 @@ public class LookDecision : Decision {
 
     private bool Look(StateController controller)
     {
-        Debug.DrawRay(controller.eyes.position, controller.eyes.forward.normalized * controller.enemyStats.lookRange, Color.green);
-        
-        var target = controller.target;
-
-        
+        Transform target = controller.target;
         if (inConeSight(target, controller))
         {
             Debug.Log("I See you");
@@ -45,7 +41,6 @@ public class LookDecision : Decision {
                 RaycastHit hit;
                 if (Physics.Raycast(controller.eyes.transform.position, direction, out hit, distance))
                 {
-                    Debug.DrawRay(controller.eyes.transform.position, direction, Color.red);
                     return hit.transform == target;
                 }
             }

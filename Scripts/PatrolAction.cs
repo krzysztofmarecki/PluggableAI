@@ -12,6 +12,7 @@ public class PatrolAction : Action {
 
     private void Patrol(StateController controller)
     {
+        Debug.DrawRay(controller.eyes.position, controller.eyes.forward.normalized * controller.enemyStats.lookRange, Color.green);
         if (controller.wayPointList.Count == 0) return;
 
         controller.navMeshAgent.destination = controller.wayPointList[controller.nextWayPoint].position;
