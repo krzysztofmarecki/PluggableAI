@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(NavMeshBuilder))]
+[RequireComponent(typeof(Collider2D))]
 public class StateController : MonoBehaviour {
 
     public State currentState;
@@ -56,7 +59,7 @@ public class StateController : MonoBehaviour {
 		}
 	}
 
-    void Update()
+    void FixedUpdate()
     {
         if (!aiActive) { return; }
         currentState.UpdateState(this);
@@ -77,6 +80,7 @@ public class StateController : MonoBehaviour {
     {
         if (nextState != remainInState)
         {
+            Debug.Log("Changed state from " + currentState.name + ", to " + nextState.name);
             currentState = nextState;
             OnNewState();
         }
@@ -89,7 +93,8 @@ public class StateController : MonoBehaviour {
 
     public bool isSearchTimeElapsed()
     {
-        timeInState += Time.deltaTime;
+        // bc AI is in FixedUpdate
+        timeInState += Time.fixedDeltaTime;
 //        Debug.Log("TimeInState " + timeInState);
         return timeInState >= enemyStats.searchDuration;
     }

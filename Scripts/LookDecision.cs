@@ -57,6 +57,6 @@ public class LookDecision : Decision {
     {
         Vector3 direction = (target.position - controller.eyes.transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        controller.eyes.transform.rotation = Quaternion.Slerp(controller.eyes.transform.rotation, lookRotation, Time.deltaTime * 5f);
+        controller.eyes.transform.rotation = Quaternion.Slerp(controller.eyes.transform.rotation, lookRotation, Time.fixedDeltaTime * 5f);
     }
 }
