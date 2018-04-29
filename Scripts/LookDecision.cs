@@ -32,7 +32,6 @@ public class LookDecision : Decision {
     bool inConeSight(Transform target, StateController controller)
     {
         float distance = Vector3.Distance(target.position, controller.eyes.transform.position);
-    //    Debug.Log("distance" + distance);
 
         // check distance
         if (distance <= controller.enemyStats.lookRange)
@@ -40,7 +39,6 @@ public class LookDecision : Decision {
             // calculate and check angle
             Vector3 direction = (target.position - controller.eyes.transform.position);
             var angle = Vector3.Angle(controller.eyes.transform.forward, direction);
-    //        Debug.Log("angle: " + angle);
             if (angle <= controller.enemyStats.coneSightAngle)
             {
                 // check if is actually in sight (no X-Ray allowed)
@@ -48,8 +46,6 @@ public class LookDecision : Decision {
                 if (Physics.Raycast(controller.eyes.transform.position, direction, out hit))
                 {
                     Debug.DrawRay(controller.eyes.transform.position, direction, Color.red);
-                //    Debug.Log(hit.transform.ToString());
-                //    Debug.Log(target.ToString());
                     return hit.transform == target;
                 }
             }
