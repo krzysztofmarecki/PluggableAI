@@ -14,7 +14,7 @@ public class LookDecision : Decision {
 
     private bool Look(StateController controller)
     {
-        Transform target = controller.target;
+        Transform target = controller.targetTransform;
         if (inConeSight(target, controller))
         {
             Debug.Log("I See you");

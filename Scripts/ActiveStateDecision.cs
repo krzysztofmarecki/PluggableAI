@@ -7,7 +7,7 @@ public class ActiveStateDecision : Decision {
 
     public override bool Decide(StateController controller)
     {
-        bool chaseTargetIsActive = controller.target.gameObject.activeSelf;
+        bool chaseTargetIsActive = controller.target.activeSelf;
         return chaseTargetIsActive;
     }
 }

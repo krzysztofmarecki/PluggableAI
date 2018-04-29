@@ -12,7 +12,7 @@ public class AttackAction : Action {
 
     private void Attack(StateController controller)
     {
-        Transform target = controller.target;
+        Transform target = controller.targetTransform;
         if (isTargetInRange(target, controller))
         {
             // Call attack method
