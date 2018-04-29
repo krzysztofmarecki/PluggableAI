@@ -25,12 +25,9 @@ public class State : ScriptableObject
 	
     private void CheckTransitions(StateController controller)
     {
-    //    Debug.Log("ckeckTrans");
-    //    Debug.Log(transitions.Length);
         for (int i = 0; i < transitions.Length; i++)
         {
             bool decisionSucceded = transitions[i].decision.Decide(controller);
-            //        Debug.Log("ckeckTransInn");
             State nextState;
             if (decisionSucceded)
             {
@@ -43,6 +40,7 @@ public class State : ScriptableObject
 
             // on first transition to other state we stop iterating
             // hierarchy of transistions is from most to least important
+            // it's behaviour clarification, not needed to work
             if (nextState != controller.remainInState)
             {
                 controller.TransitionToState(nextState);

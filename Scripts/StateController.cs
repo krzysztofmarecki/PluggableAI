@@ -90,7 +90,7 @@ public class StateController : MonoBehaviour {
     public bool isSearchTimeElapsed()
     {
         timeInState += Time.deltaTime;
-        Debug.Log("TimeInState " + timeInState);
+//        Debug.Log("TimeInState " + timeInState);
         return timeInState >= enemyStats.searchDuration;
     }
 }
