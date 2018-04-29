@@ -43,7 +43,7 @@ public class LookDecision : Decision {
             {
                 // check if is actually in sight (no X-Ray allowed)
                 RaycastHit hit;
-                if (Physics.Raycast(controller.eyes.transform.position, direction, out hit))
+                if (Physics.Raycast(controller.eyes.transform.position, direction, out hit, distance))
                 {
                     Debug.DrawRay(controller.eyes.transform.position, direction, Color.red);
                     return hit.transform == target;
