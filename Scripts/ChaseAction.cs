@@ -13,7 +13,7 @@ public class ChaseAction : Action {
     private void Chase(StateController controller)
     {
         Debug.DrawRay(controller.eyes.position, controller.eyes.forward.normalized * controller.enemyStats.lookRange, Color.gray);
-        controller.navMeshAgent.destination = controller.targetTransform.position;
+        controller.navMeshAgent.destination = controller.lastTargetLocation;
         controller.navMeshAgent.isStopped = false;
     }
 }
