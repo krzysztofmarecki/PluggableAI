@@ -21,19 +21,18 @@ public class StateController : MonoBehaviour {
 	[HideInInspector] public List<Transform> wayPointList;
     [HideInInspector] public int nextWayPoint;
 
-    // SearchAreaAction, LookDecision
-    [HideInInspector] public Vector3 lastSeenLocation;
-    private float timeInState = 0f;
+    // SearchAreaAction, LookDecision, HearDecision
+    [HideInInspector] public Vector3 lastTargetLocation;
+    public float timeInState { get; private set; }
     
     // dummy for now, maybe helpfull in future
-	private bool aiActive;
+	private bool aiActive = true;
     
 	void Awake () 
 	{
 		navMeshAgent = GetComponent<NavMeshAgent> ();
         targetAnimator = target.GetComponent<Animator>();
         targetTransform = target.GetComponent<Transform>();
-        aiActive = true;
     }
 
     // unused for now, maybe will be helpfull in future
@@ -64,7 +63,7 @@ public class StateController : MonoBehaviour {
     //        Debug.Log("onDrawGizmos");
             Gizmos.color = currentState.sceneGizmoColor;
     //        Debug.Log(Gizmos.color.ToString());
-            Gizmos.DrawWireSphere(lastSeenLocation, 1f);
+            Gizmos.DrawWireSphere(lastTargetLocation, 1f);
         }
     }
 
