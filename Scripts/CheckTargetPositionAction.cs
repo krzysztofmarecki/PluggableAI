@@ -17,9 +17,9 @@ public class CheckTargetPositionAction : Action {
         Debug.DrawRay(controller.eyes.position, controller.eyes.forward.normalized * controller.enemyStats.lookRange, orange);
         // if current destination is not set to lastTargetLocation
         // change destination
-        if (controller.navMeshAgent.destination != controller.lastTargetLocation)
+        if (controller.navMeshAgent.destination != controller.lastKnownTargetLocation)
         {
-            controller.navMeshAgent.SetDestination(controller.lastTargetLocation);
+            controller.navMeshAgent.SetDestination(controller.lastKnownTargetLocation);
         }
     }
 }

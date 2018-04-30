@@ -32,7 +32,7 @@ public class HearDecision : Decision {
                 
                 controller.navMeshAgent.isStopped = false;
 
-                controller.lastTargetLocation = heardPosition;
+                controller.lastKnownTargetLocation = heardPosition;
 
                 return true;
             }

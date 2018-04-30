@@ -22,7 +22,7 @@ public class StateController : MonoBehaviour {
     [HideInInspector] public int nextWayPoint;
 
     // SearchAreaAction, LookDecision, HearDecision
-    [HideInInspector] public Vector3 lastTargetLocation;
+    [HideInInspector] public Vector3 lastKnownTargetLocation;
     private float timeInState = 0f;
     
     // dummy for now, maybe helpfull in future
@@ -63,7 +63,7 @@ public class StateController : MonoBehaviour {
     //        Debug.Log("onDrawGizmos");
             Gizmos.color = currentState.sceneGizmoColor;
     //        Debug.Log(Gizmos.color.ToString());
-            Gizmos.DrawWireSphere(lastTargetLocation, 1f);
+            Gizmos.DrawWireSphere(lastKnownTargetLocation, 1f);
         }
     }
 

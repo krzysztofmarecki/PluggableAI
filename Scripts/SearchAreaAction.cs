@@ -23,7 +23,7 @@ public class SearchAreaAction : Action {
             var searchRadius = controller.enemyStats.searchRadius;
             // create random point in NavMesh to go to
             Vector3 randomDirection = Random.insideUnitSphere * searchRadius;
-            randomDirection += controller.lastTargetLocation;
+            randomDirection += controller.lastKnownTargetLocation;
 
             // sample vector to the NavMesh
             NavMeshHit newDestination;
