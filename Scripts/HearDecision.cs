@@ -30,8 +30,6 @@ public class HearDecision : Decision {
                 // randomize target's position, we only heard him after all
                 var heardPosition = heardRandomizedPosition(target.position, distance);
                 
-                // set current position as destination position to make NavMeshAgent to stop
-                controller.navMeshAgent.ResetPath();
                 controller.navMeshAgent.isStopped = false;
 
                 controller.lastTargetLocation = heardPosition;

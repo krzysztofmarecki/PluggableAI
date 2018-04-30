@@ -23,7 +23,7 @@ public class StateController : MonoBehaviour {
 
     // SearchAreaAction, LookDecision, HearDecision
     [HideInInspector] public Vector3 lastTargetLocation;
-    public float timeInState { get; private set; }
+    private float timeInState = 0f;
     
     // dummy for now, maybe helpfull in future
 	private bool aiActive = true;

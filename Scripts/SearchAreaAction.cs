@@ -15,14 +15,9 @@ public class SearchAreaAction : Action {
     {
         Debug.DrawRay(controller.eyes.position, controller.eyes.forward.normalized * controller.enemyStats.lookRange, Color.yellow);
         
-        if (controller.timeInState == 0f) // if 1st iteration (Acts are executed before Decisions, so timeInState can be 0, bc timeInState is incremented in Decision)
-        {
-            controller.navMeshAgent.SetDestination(controller.lastTargetLocation);
-        }
-        
         // check is already in position
         // if so, generate next point and set new destination
-        else if (controller.navMeshAgent.remainingDistance <= controller.navMeshAgent.stoppingDistance &&
+        if (controller.navMeshAgent.remainingDistance <= controller.navMeshAgent.stoppingDistance &&
             !controller.navMeshAgent.pathPending)
         {
             var searchRadius = controller.enemyStats.searchRadius;
