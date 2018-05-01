@@ -39,7 +39,9 @@ public class LookDecision : Decision {
             {
                 // check if is actually in sight (no X-Ray allowed)
                 RaycastHit hit;
-                if (Physics.Raycast(controller.eyes.transform.position, direction, out hit, distance))
+                // offset on Y axis is, because when target was very close to NPC, raycast could miss
+                // position is on the bottom of transform, so we need to add to Y axis
+                if (Physics.Raycast(controller.eyes.transform.position, new Vector3(direction.x, direction.y + 0.1f, direction.z), out hit, distance))
                 {
                     return hit.transform == target;
                 }
